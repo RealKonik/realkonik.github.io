@@ -101,3 +101,17 @@ body {
     background-color: #323639;
 
 }
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding-bottom: 5px;
+    text-align: center;
+  }
+.footer a {
+    color: #ced4da;
+    text-decoration: none;
+}
+
