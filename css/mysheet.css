@@ -44,9 +44,10 @@ body {
     background-color: #9aa0a6;
   }
 
-#outputHeaders{
+.outputTextArea{
     float: right;
 }
+
 textarea{
     width: 45%;
     height: 100%;
