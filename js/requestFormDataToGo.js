@@ -9,8 +9,8 @@ window.onload = function () {
             var dataSplit
             if (data.includes(": ")) {
                 dataSplit = data.split(": ")
-            } else if (data.includes("  ")) {
-                dataSplit = data.split("    ")
+            } else if (data.includes("	")) {
+                dataSplit = data.split("	")
             }           
             key = dataSplit[0]
             value = dataSplit[1]
