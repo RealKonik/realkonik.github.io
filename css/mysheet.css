@@ -13,6 +13,10 @@ body {
     color: #ced4da;
     text-decoration: none;
 }
+.headerOrder{
+    vertical-align: top;
+    color: #ced4da
+}
 
 #welcome {
     color: #D6D6D7;

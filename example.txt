@@ -1,0 +1,42 @@
+headers := tls.Headers{
+		"Host":                 `www.zalando.` + strings.ToLower(task.Profile.Address.Country),
+		"x-ts":                 "1663175691502",
+		"User-Agent":           `zalando/22.11.1 (iPhone; iOS 15.6.1; Scale/3.00)`,
+		"x-sig":                `c04c3b41e970020373ad8c39baa0194ba30e282e`, //not checked
+		"ot-tracer-traceid":    `fd805790d43d9d45`,
+		"x-logged-in":          `true`,
+		"x-device-type":        `smartphone`,
+		"x-zalando-client-id":  `1e780ba7-e417-4f8a-b8ca-e4510129a87d`, //todo
+		"x-frontend-type":      `mobile-app`,
+		"x-zalando-mobile-app": `3580f92a4bafb890i`,
+		"x-zalando-consent-id": `2A24E2AF-C407-47A5-B493-EA69FD0F8BD1`,
+		"x-os-version":         `15.6.1`,
+		"x-device-os":          `ios`,
+		"x-sales-channel":      `b773b421-c719-4dfd-afc8-e97da508a88d`,
+		"ot-tracer-sampled":    `true`,
+		"x-app-domain":         "47",
+		"x-app-version":        "22.11.1",
+		"x-device-platform":    `ios`,
+		"Accept-Language":      `*`,
+		"ot-tracer-spanid":     `f8386bf252a3f470`,
+		"x-uuid":               `3361EFE1-A3A8-4258-933B-0D8A8EE1A37A`, //todo
+		"Accept":               `application/json`,
+		"Content-Type":         `application/json`,
+	}
+	jsonBody := `{"appVersion":"22.11.1","appDomain":47,"signature":"282ce494d1ddbbf0eb1499e849fccf90e255fcc5","timeStamp":1663175691502,"devicePlatform":"ios","uuid":"3361EFE1-A3A8-4258-933B-0D8A8EE1A37A","items":[{"sku":"` + sess.product.id + `","simpleSku":"` + sess.product.selectedSku + `","business_partner_id":"810d1d00-4312-43e5-bd31-d8373fdd24c7"}]}`
+	formData := "pymt_a=" + sess.product.pymt_a + "&pymt_m=eyJpdiI6ImhsdXFnQWNHZjRnY1JIcklYWEw2eEE9PSIsInZhbHVlIjoiVUloYUtuUngxdkxjNzYrVGpoVEoxdz09IiwibWFjIjoiMGZmMTEyMzcxZTIyZTQwNjY1ZGRmODgwMmJjYmU0YjQ4MWJkMzE4ODJkZWI2MWI2NWEyMWE4YzExMGY2YmEyMiIsInRhZyI6IiJ9&variant_id=" + sess.product.selectedVariantID + "&variant_size=" + sess.product.selectedVariantSize + "&variant_sku=" + sess.product.selectedVariantSku + "&quantity=1&id=" + sess.product.selectedID,
+
+	opts := tls.Options{
+		URL:    "https://www.zalando." + strings.ToLower(task.Profile.Address.Country) + "/api/mobile/v3/cart.json",
+		Method: "POST",
+
+		Headers: headers,
+		Body:    jsonBody,
+
+		ClientSettings: &task.ClientSettings,
+		Jar:            sess.cookies,
+	}
+	resp, err := tls.Do(opts)
+	if err != nil {
+		return err
+	}
