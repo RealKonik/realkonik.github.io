@@ -28,8 +28,8 @@ function getReq(inputCurl){
                         headers_list[index] = headers_list[index].split(" --")[0]
                     }
                     splitHeader = headers_list[index].slice(1,-1).split(": ")
-                    go_req += "`" +splitHeader[0] + "`";
-                    go_req +=":`" +splitHeader[1] + "`,\n";
+                    go_req += `"` +splitHeader[0] + `"`;
+                    go_req +=`:"` +splitHeader[1] + `",\n`;
                 }
             }
             go_req += "}\n"
