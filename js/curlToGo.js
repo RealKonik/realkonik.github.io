@@ -54,7 +54,7 @@ function getReq(inputCurl){
             }else {
                 decoded = data
             }
-            go_req += "postData=`" + decoded + "`\n\n"
+            go_req += "postData:=`" + decoded + "`\n\n"
         }
         if (curl.includes("-X")) {
             method = curl.split("-X ")[1].split(" ")[0]
