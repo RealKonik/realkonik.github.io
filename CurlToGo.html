@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="css/mysheet.css">
+  <head>
+    <link rel="stylesheet" href="css/mysheet.css" />
     <title>Curl to Go</title>
     <script src="js/curlToGo.js"></script>
-</head>
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
     <div class="header">
-          <a href= './index.html'>Home</a>
-          <a href= './charlesToGo.html'>Charles To Go</a>
-          <a href="./requestFormDataToGo.html">Form data to Go</a>
-          <a class="active" href= "./CurlToGo.html">Curl to Go</a>
-          <a >Test</a>
-      </div>
-    <div id="textAreaDiv">
-        <textarea id="inputCurl" rows="30" placeholder="Input Curl"></textarea>
-        <input class="headerOrder" name="headerOrder" type="checkbox" />
-        <label for="headerOrder" class="headerOrder" id="headerOrder">H. Order</label>
-        <textarea class="outputTextArea" id="outputGoReq" rows="30" placeholder="Go request" readonly="true"></textarea>
+      <a href="./index.html">Home</a>
+      <a href="./charlesToGo.html">Charles To Go</a>
+      <a href="./sizes.html">sizes</a>
+      <a class="active" href="./CurlToGo.html">Curl to Go</a>
     </div>
-</body>
+    <div id="textAreaDiv">
+      <textarea id="inputCurl" rows="30" placeholder="Input Curl"></textarea>
+      <input
+        class="headerOrder"
+        name="headerOrder"
+        id="headerOrder"
+        type="checkbox"
+      />
+      <label for="headerOrder" class="headerOrder">H. Order</label>
+      <textarea
+        class="outputTextArea"
+        id="outputGoReq"
+        rows="30"
+        placeholder="Go request"
+        readonly="true"
+      ></textarea>
+    </div>
+  </body>
 </html>

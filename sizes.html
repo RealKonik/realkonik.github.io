@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="css/mysheet.css" />
+    <title>Curl to Go</title>
+    <script src="js/sizes.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div class="header">
+      <a href="./index.html">Home</a>
+      <a href="./charlesToGo.html">Charles To Go</a>
+      <a class="active" href="./sizes.html">Sizes</a>
+      <a href="./CurlToGo.html">Curl to Go</a>
+    </div>
+    <div
+      style="
+        background-color: #121212;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      "
+    >
+      <form
+        id="autoSubmitForm"
+        style="
+          background-color: #232323;
+          color: #f0f0f0;
+          padding: 30px;
+          border-radius: 10px;
+          width: 100%;
+          max-width: 500px;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        "
+      >
+        <div style="margin-bottom: 20px">
+          <label style="display: block; margin-bottom: 8px; color: #cccccc"
+            >Size</label
+          >
+          <input
+            type="text"
+            id="size"
+            name="size"
+            style="
+              width: 50px;
+              padding: 12px;
+              border-radius: 6px;
+              border: 1px solid #444;
+              background-color: #2d2d2d;
+              color: #ffffff;
+              font-size: 16px;
+            "
+            placeholder="40 2/3"
+          />
+          <select
+            id="sizeRegion"
+            style="
+              width: 80px;
+              padding: 12px;
+              border-radius: 6px;
+              border: 1px solid #444;
+              background-color: #2d2d2d;
+              color: #ffffff;
+              font-size: 16px;
+              margin-bottom: 20px;
+              margin-left: 10px;
+              appearance: none;
+              background-repeat: no-repeat;
+              background-position: right 12px center;
+              background-size: 16px;
+              cursor: pointer;
+            "
+          >
+            <option value="EU">EU</option>
+            <option value="UK">UK</option>
+            <option value="USM">US - M</option>
+            <option value="USW">US - W</option>
+          </select>
+
+          <select
+            id="manufacturer"
+            style="
+              width: 130px;
+              padding: 12px;
+              border-radius: 6px;
+              border: 1px solid #444;
+              background-color: #2d2d2d;
+              color: #ffffff;
+              font-size: 16px;
+              margin-bottom: 20px;
+              margin-left: auto; /* This pushes it to the right */
+              display: block; /* Required for margin-left: auto to work */
+              float: right;
+              appearance: none;
+              background-repeat: no-repeat;
+              background-position: right 12px center;
+              background-size: 16px;
+              cursor: pointer;
+            "
+          >
+            <option value="NikeM">Nike - M</option>
+            <option value="NikeW">Nike - W</option>
+            <option value="NikeGS">Nike - GS</option>
+            <option value="Adidas">Adidas</option>
+            <option value="VansM">Vans - M</option>
+            <option value="VansW">Vans - W</option>
+            <option value="VansGS">Vans - GS</option>
+            <option value="NewBalanceM">New Balance - M</option>
+            <option value="NewBalanceW">New Balance - W</option>
+          </select>
+          <button
+            id="submitButton"
+            style="
+              padding: 12px 20px;
+              background-color: #3a5c8a;
+              color: white;
+              border: none;
+              border-radius: 6px;
+              font-size: 16px;
+              cursor: pointer;
+              transition: background-color 0.2s;
+              width: 100%;
+              clear: none;
+            "
+            onmouseover="this.style.backgroundColor='#4a6c9a'"
+            onmouseout="this.style.backgroundColor='#3a5c8a'"
+          >
+            Submit
+          </button>
+
+          <table
+            id="resultTable"
+            style="
+              display: none;
+              width: 100%;
+              border-collapse: collapse;
+              margin: 20px 0;
+              background-color: #2d2d2d;
+              color: #f0f0f0;
+              border-radius: 8px;
+              overflow: hidden;
+            "
+          >
+            <thead>
+              <tr style="background-color: #3a3a3a">
+                <th
+                  style="
+                    padding: 12px;
+                    text-align: left;
+                    border-bottom: 2px solid #444;
+                  "
+                >
+                  Region
+                </th>
+                <th
+                  style="
+                    padding: 12px;
+                    text-align: left;
+                    border-bottom: 2px solid #444;
+                  "
+                >
+                  Size
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding: 12px; border-bottom: 1px solid #444">EU</td>
+                <td
+                  id="EuSizeResult"
+                  style="padding: 12px; border-bottom: 1px solid #444"
+                >
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; border-bottom: 1px solid #444">UK</td>
+                <td
+                  id="UkSizeResult"
+                  style="padding: 12px; border-bottom: 1px solid #444"
+                >
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; border-bottom: 1px solid #444">
+                  US M (Y)
+                </td>
+                <td
+                  id="USMSizeResult"
+                  style="padding: 12px; border-bottom: 1px solid #444"
+                >
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 12px; border-bottom: 1px solid #444">
+                  US W
+                </td>
+                <td
+                  id="USWSizeResult"
+                  style="padding: 12px; border-bottom: 1px solid #444"
+                >
+                  -
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 12px">CM</td>
+                <td id="CmSizeResult" style="padding: 12px">-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

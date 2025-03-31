@@ -29,6 +29,7 @@ body {
     }
 
 #buttons {
+    margin-top: 20px;
     position: absolute;
     left: 50%;
     top: 52%;
